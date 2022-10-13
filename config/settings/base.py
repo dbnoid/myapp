@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['172.17.74.236']
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'common.apps.CommonConfig',
     'myapp.apps.MyappConfig',
     'django.contrib.admin',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # 최상단에 추가해주기
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -197,3 +199,13 @@ LOGGING = {
         },
     }
 }
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://172.17.74.236",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000"
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
