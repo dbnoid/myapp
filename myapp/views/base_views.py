@@ -6,7 +6,6 @@ from ..models import Question
 
 
 def index(request):
-    3/0
     page = request.GET.get('page', '1')  # 페이지
     kw = request.GET.get('kw', '')  # 검색어
     question_list = Question.objects.order_by('-create_date')
@@ -23,7 +22,6 @@ def index(request):
     context = {'question_list': page_obj, 'page': page, 'kw': kw}
     # context = {'question_list': question_list}
     return render(request, 'myapp/question_list.html', context)
-    # return HttpResponse("안녕하세요 myapp에 오신것을 환영합니다.")
 
 
 def detail(request, question_id):
